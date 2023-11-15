@@ -33,7 +33,7 @@ void execute(char *line, stack_t **stack, unsigned int linecount)
 			if ((strcmp(args[0], "push") == 0) && args[1] == NULL)
 			{
 				fprintf(stderr, "L%d: usage: push integer\n", linecount);
-				exit(EXIT_FAILURE);
+				free_mem(args), exit(EXIT_FAILURE);
 			}
 			else if (strcmp(args[0], "push") == 0)
 			{
@@ -41,6 +41,7 @@ void execute(char *line, stack_t **stack, unsigned int linecount)
 				push(stack, linecount);
 				if (global_value != NULL)
 					free(global_value);
+				free_mem(args);
 				break;
 			}
 			if (strcmp(args[0], "push") != 0)
@@ -48,7 +49,7 @@ void execute(char *line, stack_t **stack, unsigned int linecount)
 				if (strcmp(args[0], instructions[j].opcode) == 0)
 				{
 					instructions[j].f(stack, linecount);
-					return;
+					free_mem(args), return;
 				}
 			}
 		}
@@ -56,6 +57,6 @@ void execute(char *line, stack_t **stack, unsigned int linecount)
 	if (j == (sizeof(instructions) / sizeof(instruction_t)))
 	{
 		fprintf(stderr, "L%d: unknown instruction %s\n", linecount, args[0]);
-		exit(EXIT_FAILURE);
+		free_mem(args), exit(EXIT_FAILURE);
 	}
 }

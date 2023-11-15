@@ -42,10 +42,11 @@ int main(int argc, char *argv[])
 			line[strcspn(line, "\n")] = '\0';
 			execute(line, &stack, linecount);
 			linecount++;
-
 		}
-	}
 
+	}
+	free(line);
+	free_stack(&stack);
 	fclose(file);
 	return (0);
 }

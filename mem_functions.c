@@ -45,3 +45,27 @@ void free_mem(char **args)
 	if (args != NULL)
 		free(args);
 }
+
+/**
+* free_stack - Frees a stack.
+* @stack: A double pointer to the top of the stack.
+*
+* This function frees all the nodes in the stack and sets the top of the stack
+* to NULL.
+*
+* Return: None.
+*/
+void free_stack(stack_t **stack)
+{
+	stack_t *current = *stack;
+	stack_t *next;
+
+	while (current != NULL)
+	{
+		next = current->next;
+		free(current);
+		current = next;
+	}
+
+	*stack = NULL;
+}

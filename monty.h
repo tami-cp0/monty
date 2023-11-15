@@ -55,6 +55,7 @@ char **split_space(char *string);
 /* memory functions */
 char *_strdup(char *str);
 void free_mem(char **args);
+void free_stack(stack_t **stack);
 
 int empty_or_space(char *string);
 
