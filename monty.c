@@ -11,9 +11,9 @@ int main(int argc, char *argv[])
 {
 	FILE *file;
 	char *line;
-
 	stack_t *stack = NULL;
 	unsigned int linecount = 1;
+
 
 	if (argc == 1 || argc > 2)
 	{

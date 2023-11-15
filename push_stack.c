@@ -1,15 +1,15 @@
 #include "monty.h"
 
 /**
- * push - Pushes a new node with the given data onto the stack
- * @stack: Double pointer to the head of the stack
- * @line_number: Line number in the source file where push was called
- *
- * This function creates a new node with the specified data and adds it to the
- * top of the stack.
- *
- * Return: void
- */
+* push - Pushes a new node with the given data onto the stack
+* @stack: Double pointer to the head of the stack
+* @line_number: Line number in the source file where push was called
+*
+* This function creates a new node with the specified data and adds it to the
+* top of the stack.
+*
+* Return: void
+*/
 void push(stack_t **stack, unsigned int line_number)
 {
 	int data;
