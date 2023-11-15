@@ -34,8 +34,7 @@ void execute(char *line, stack_t **stack, unsigned int linecount)
 			{
 				fprintf(stderr, "L%d: usage: push integer\n", linecount);
 				free_mem(args), exit(EXIT_FAILURE);
-			}
-			else if (strcmp(args[0], "push") == 0)
+			} else if (strcmp(args[0], "push") == 0)
 			{
 				global_value = _strdup(args[1]);
 				push(stack, linecount);
@@ -49,7 +48,8 @@ void execute(char *line, stack_t **stack, unsigned int linecount)
 				if (strcmp(args[0], instructions[j].opcode) == 0)
 				{
 					instructions[j].f(stack, linecount);
-					free_mem(args), return;
+					free_mem(args);
+					return;
 				}
 			}
 		}
