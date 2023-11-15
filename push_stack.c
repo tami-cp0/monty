@@ -13,11 +13,11 @@
 void push(stack_t **stack, unsigned int line_number)
 {
 	int data;
-
+	char *endptr;
 	stack_t *new_node;
 
-	data = atoi(global_value);
-	if (data == 0 && strcmp(global_value, "0") != 0)
+	data = strtol(global_value, &endptr, 10);
+	if (*endptr != '\0' && strcmp(global_value, "0") != 0)
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
