@@ -86,7 +86,7 @@ void pop(stack_t **stack, unsigned int line_number)
 
 	if (temp == NULL)
 	{
-		fprintf(stderr, "L%d: usage: pop\n", line_number);
+		fprintf(stderr, "L%d: can't pop an empty stack\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 
@@ -107,8 +107,6 @@ void pop(stack_t **stack, unsigned int line_number)
 void pint(stack_t **stack, unsigned int line_number)
 {
 	stack_t *temp = *stack;
-
-	(void)line_number;
 
 	if (*stack == NULL)
 	{

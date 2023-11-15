@@ -23,9 +23,7 @@ void execute(char *line, stack_t **stack, unsigned int linecount)
 	char **args = NULL;
 
 	instruction_t instructions[] = {
-		{"pall", pall},
-		{"push", push},
-		{"pint", pint},
+		{"pall", pall}, {"push", push}, {"pint", pint}, {"pop", pop}
 	};
 	args = split_space(line);
 	for (j = 0; j < sizeof(instructions) / sizeof(instruction_t); j++)
