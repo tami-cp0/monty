@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
 	unsigned int linecount = 1;
 
 
-	if (argc == 1 || argc > 2)
+	if (argc != 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
@@ -33,7 +33,11 @@ int main(int argc, char *argv[])
 	while (fgets(line, 1024, file) != NULL)
 	{
 		if (empty_or_space(line) == 1)
+		{
+			linecount++;
 			continue;
+		}
+		else
 		{
 			line[strcspn(line, "\n")] = '\0';
 			execute(line, &stack, linecount);

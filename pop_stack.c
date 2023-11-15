@@ -11,21 +11,14 @@
 */
 void pop(stack_t **stack, unsigned int line_number)
 {
-	int item;
-
 	stack_t *temp = *stack;
 
 	if (temp == NULL)
 	{
-		putchar_stderr('L');
-		error_msg(NULL, line_number, ": usage: pop");
+		fprintf(stderr, "L%d: usage: pop\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 
-	item = temp->n;
 	*stack = temp->next;
 	free(temp);
-
-	printf("The deleted item is %d\n", item);
 }
-

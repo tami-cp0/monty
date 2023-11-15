@@ -48,17 +48,11 @@ void pop(stack_t **stack, unsigned int line_number);
 void add(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
 
-/* error functions */
-void error_msg(char *argv[], int linecount, char *message);
-void print_number_stderr(int number);
-int putchar_stderr(char c);
-void print_stderr(const char *str);
-
 /* main funcitons */
 void execute(char *line, stack_t **stack, unsigned int linecount);
 char **split_space(char *string);
-void check_convert(char **args, int linecount);
 
+/* memory functions */
 char *_strdup(char *str);
 void free_mem(char **args);
 
