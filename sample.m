@@ -1,26 +1,14 @@
-# hello
 push 1
-    # hi how aree you
-   push 3
-   swap
-
-
-
-
-
-
-
-   
-   push 4
-   push 1
-   pop
-   add
-
-
-   push 4
-   mul
-                        push                              5
-   push 4
-                                      #                                             ishdijsd
-   pint
-   pall
+push 2
+push 3
+push 4
+push 0
+push 110
+push 0
+push 108
+push 111
+push 111
+push 104
+push 99
+push 83
+pstr
