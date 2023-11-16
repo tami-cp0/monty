@@ -1,12 +1,12 @@
 #include "monty.h"
 
 /**
- * mod - Computes the modulo of the second top element by the top element
- * @stack: Double pointer to the head of the stack
- * @line_number: Line number in the source file
- *
- * Return: Void
- */
+* mod - Computes the modulo of the second top element by the top element
+* @stack: Double pointer to the head of the stack
+* @line_number: Line number in the source file
+*
+* Return: Void
+*/
 void mod(stack_t **stack, unsigned int line_number)
 {
 	stack_t *temp = NULL;
@@ -29,4 +29,17 @@ void mod(stack_t **stack, unsigned int line_number)
 	*stack = (*stack)->next;
 	(*stack)->n = result;
 	free(temp);
+}
+
+/**
+ * comment - Does nothing (handles comments)
+ * @stack: Double pointer to the head of the stack
+ * @line_number: Line number in the source file
+ *
+ * Return: void
+ */
+void comment(stack_t **stack, unsigned int line_number)
+{
+	(void)stack;
+	(void)line_number;
 }

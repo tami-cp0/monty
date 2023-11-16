@@ -54,6 +54,7 @@ void sub(stack_t **stack, unsigned int line_number);
 void my_div(stack_t **stack, unsigned int line_number);
 void mul(stack_t **stack, unsigned int line_number);
 void mod(stack_t **stack, unsigned int line_number);
+void comment(stack_t **stack, unsigned int line_number);
 
 /* main funcitons */
 void execute(char *line, stack_t **stack, unsigned int linecount);
