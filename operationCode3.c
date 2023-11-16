@@ -9,7 +9,7 @@
  */
 void mod(stack_t **stack, unsigned int line_number)
 {
-	stack_t = *temp = NULL;
+	stack_t *temp = NULL;
 	int result;
 
 	if (!stack || !(*stack) || !(*stack)->next)
