@@ -2,6 +2,8 @@
 
 char *global_value = NULL;
 
+void execute(char *line, stack_t **stack, unsigned int linecount);
+
 /**
  * execute - Executes the given instruction based on the input line
  * @line: The input line containing the instruction
@@ -24,6 +26,7 @@ void execute(char *line, stack_t **stack, unsigned int linecount)
 
 	instruction_t instructions[] = {
 		{"pall", pall}, {"push", push}, {"pint", pint}, {"pop", pop}, {"swap", swap},
+		{"add", add},
 	};
 	args = split_space(line);
 	for (j = 0; j < sizeof(instructions) / sizeof(instruction_t); j++)

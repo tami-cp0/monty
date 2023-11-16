@@ -133,18 +133,13 @@ void pint(stack_t **stack, unsigned int line_number)
 */
 void swap(stack_t **stack, unsigned int line_number)
 {
-	stack_t *temp = *stack;
-	stack_t *current;
+	stack_t *temp = NULL;
+	stack_t *current = NULL;
 	size_t length = 0;
 
-	while (temp)
+	if (!stack || !(*stack) || !(*stack)->next)
 	{
-		temp = temp->next;
-		length++;
-	}
-	if (length < 2)
-	{
-		fprintf(stderr, "L%d: can't swap, stack too short", line_number);
+		fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 
