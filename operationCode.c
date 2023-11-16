@@ -121,33 +121,41 @@ void pint(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * swap - Swaps the top two elements of the stack.
- * @stack: A pointer to the top of the stack.
- * @line_number: The line number in the Monty bytecodes file.
- *
- * This function swaps the top two elements of the stack.
- * If the stack contains fewer than two elements, it prints
- * an error message to stderr and exits with failure status.
- *
- * Return: None.
- */
+* swap - Swaps the top two elements of the stack.
+* @stack: A pointer to the top of the stack.
+* @line_number: The line number in the Monty bytecodes file.
+*
+* This function swaps the top two elements of the stack.
+* If the stack contains fewer than two elements, it prints
+* an error message to stderr and exits with failure status.
+*
+* Return: None.
+*/
 void swap(stack_t **stack, unsigned int line_number)
 {
-	stack_t *temp = NULL;
+	stack_t *temp = *stack;
+	stack_t *current;
+	size_t length = 0;
 
-	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
+	while (temp)
+	{
+		temp = temp->next;
+		length++;
+	}
+	if (length < 2)
 	{
 		fprintf(stderr, "L%d: can't swap, stack too short", line_number);
 		exit(EXIT_FAILURE);
 	}
 
 	temp = *stack;
-	*stack = (*stack)->next;
+	current = (*stack)->next;
 
-	temp->prev = *stack;
-	temp->next = temp->next->next;
+	temp->prev = current;
+	temp->next = current->next;
 
-	(*stack)->next = temp;
-	(*stack)->prev = NULL;
+	current->next = temp;
+	current->prev = NULL;
 
+	*stack = current;
 }
