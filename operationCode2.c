@@ -98,3 +98,28 @@ void my_div(stack_t **stack, unsigned int line_number)
 	(*stack)->n = result;
 	free(temp);
 }
+
+/**
+ * mul - Multiplies the top two elements of the stack
+ * @stack: Double pointer to the head of the stack
+ * @line_number: Line number in the source file
+ *
+ * Return: Void
+ */
+void mul(stack_t **stack, unsigned int line_number)
+{
+	stack_t *temp = NULL;
+	int result;
+
+	if (!stack || !(*stack) || !(*stack)->next)
+	{
+		fprintf(stderr, "L%d: can't mul, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+
+	result = ((*stack)->n * (*stack)->next->n);
+	temp = *stack;
+	*stack = *stack->next;
+	*stack->n = result;
+	free(temp);
+}
