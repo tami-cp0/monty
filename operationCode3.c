@@ -57,10 +57,10 @@ void pchar(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * pstr - Prints the string from the stack
- * @stack: Double pointer to the head of the stack
- * @line_number: Line number in the source file
- */
+* pstr - Prints the string from the stack
+* @stack: Double pointer to the head of the stack
+* @line_number: Line number in the source file
+*/
 void pstr(stack_t **stack, unsigned int line_number)
 {
 	stack_t *temp = *stack;
@@ -75,4 +75,31 @@ void pstr(stack_t **stack, unsigned int line_number)
 		temp = temp->next;
 	}
 	putchar('\n');
+}
+
+/**
+* rotl - Rotates the stack to the top
+* @stack: Double pointer to the head of the stack
+* @line_number: Line number in the source file
+*/
+void rotl(stack_t **stack, unsigned int line_number)
+{
+	stack_t *temp = *stack;
+
+	(void)line_number;
+
+	if (!stack || !*stack || !(*stack)->next)
+		return;
+
+	while (temp->next != NULL)
+	{
+		temp = temp->next;
+	}
+
+	temp->next = *stack;
+	(*stack)->prev = temp;
+	*stack = (*stack)->next;
+	(*stack)->prev = NULL;
+
+	temp->next->next = NULL;
 }
