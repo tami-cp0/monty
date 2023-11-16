@@ -29,6 +29,7 @@ void execute(char *line, stack_t **stack, unsigned int linecount)
 	};
 
 	args = split_space(line);
+
 	for (j = 0; j < sizeof(instructions) / sizeof(instruction_t); j++)
 	{
 		if (strcmp(args[0], "#") == 0)

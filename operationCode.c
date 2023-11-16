@@ -7,7 +7,7 @@ void push(stack_t **stack, unsigned int line_number);
  * @line_number: Line number in the source file where push was called
  *
  * This function creates a new node with the specified data and adds it to the
- * top of the stack.
+ * top of the stack or queue.
  *
  * Return: void
  */
@@ -17,8 +17,8 @@ void push(stack_t **stack, unsigned int line_number)
 	char *endptr;
 	stack_t *new_node;
 
-
 	result = strtol(data.value, &endptr, 10);
+
 	if (*endptr != '\0' && strcmp(data.value, "0") != 0)
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
@@ -28,6 +28,7 @@ void push(stack_t **stack, unsigned int line_number)
 	}
 
 	new_node = malloc(sizeof(stack_t));
+
 	if (new_node == NULL)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
@@ -35,6 +36,7 @@ void push(stack_t **stack, unsigned int line_number)
 			free_stack(stack);
 		exit(EXIT_FAILURE);
 	}
+
 	new_node->n = result;
 	new_node->next = NULL;
 	new_node->prev = NULL;

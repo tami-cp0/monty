@@ -54,7 +54,7 @@ typedef struct global
 
 extern global data;
 
-/* Define the function prototypes for each operation */
+/* Define the function prototypes for each operation code */
 void push(stack_t **stack, unsigned int line_number);
 void pop(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
@@ -73,7 +73,6 @@ void rotr(stack_t **stack, unsigned int line_number);
 
 /* main funcitons */
 void execute(char *line, stack_t **stack, unsigned int linecount);
-char **split_space(char *string);
 
 /* memory functions */
 char *_strdup(char *str);
@@ -84,5 +83,6 @@ void free_stack(stack_t **stack);
 int empty_or_space(char *string);
 void queue(stack_t **stack, unsigned int line_number);
 void stack_(stack_t **stack, unsigned int line_number);
+char **split_space(char *string);
 
 #endif /* MONTY_H */
