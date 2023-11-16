@@ -13,7 +13,14 @@ int empty_or_space(char *string)
 	while (*string)
 	{
 		if (!isspace((unsigned char)*string))
-
+		{
+			return (0);
+		}
+		if (*string == '#')
+		{
+			return (1);
+		}
+		if (*string == ' ' && *string == '\t')
 		{
 			return (0);
 		}
@@ -21,3 +28,4 @@ int empty_or_space(char *string)
 	}
 	return (1);
 }
+

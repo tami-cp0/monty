@@ -30,11 +30,6 @@ void execute(char *line, stack_t **stack, unsigned int linecount)
 		{"mod", mod}, {"pchar", pchar},
 	};
 	args = split_space(line);
-	if (strcmp(args[0], "#") == 0)
-	{
-		free_mem(args);
-		return;
-	}
 	for (j = 0; j < sizeof(instructions) / sizeof(instruction_t); j++)
 	{
 		if (strcmp(args[0], "#") == 0)
