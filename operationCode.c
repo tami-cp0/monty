@@ -13,21 +13,9 @@
 void push(stack_t **stack, unsigned int line_number)
 {
 	int data;
-	int i = 0;
 	char *endptr;
 	stack_t *new_node;
 
-	while (global_value[i] != '\0')
-	{
-		if (global_value[i] == '.')
-		{
-			fprintf(stderr, "L%d: usage: push integer\n", line_number);
-			if (*stack != NULL)
-				free_stack(stack);
-			exit(EXIT_FAILURE);
-		}
-		i++;
-	}
 
 	data = strtol(global_value, &endptr, 10);
 	if (*endptr != '\0' && strcmp(global_value, "0") != 0)

@@ -103,3 +103,29 @@ void rotl(stack_t **stack, unsigned int line_number)
 
 	temp->next->next = NULL;
 }
+
+/**
+* rotr - Rotates the stack to the bottom
+* @stack: Double pointer to the head of the stack
+* @line_number: Line number in the source file
+*/
+void rotr(stack_t **stack, unsigned int line_number)
+{
+	stack_t *temp = *stack, *current = *stack;
+
+	(void)line_number;
+
+	if (!stack || !(*stack) || !(*stack)->next)
+	{
+		return;
+	}
+
+	while (temp->next)
+		temp = temp->next;
+
+	temp->prev->next = NULL;
+	*stack = temp;
+	(*stack)->prev = NULL;
+	(*stack)->next = current;
+	current->prev = *stack;
+}
