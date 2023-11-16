@@ -1,2 +1,3 @@
-push 72
-pchar
+# hello
+push 1
+pall
