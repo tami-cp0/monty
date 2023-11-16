@@ -31,14 +31,39 @@ void add(stack_t **stack, unsigned int linecount)
 }
 
 /**
- * nop - Does nothing (no operation)
- * @stack: Double pointer to the head of the stack
- * @line_number: Line number in the source file
- *
- * Return: void
- */
+* nop - Does nothing (no operation)
+* @stack: Double pointer to the head of the stack
+* @line_number: Line number in the source file
+*
+* Return: void
+*/
 void nop(stack_t **stack, unsigned int line_number)
 {
 	(void)stack;
 	(void)line_number;
+}
+
+/**
+* sub - Subtracts the top two elements of the stack
+* @stack: Double pointer to the head of the stack
+* @line_number: Line number in the source file
+*
+* Return: void
+*/
+void sub(stack_t **stack, unsigned int line_number)
+{
+	stack_t *temp = NULL;
+	int result;
+
+	if (!stack || !(*stack) || !(*stack)->next)
+	{
+		fprintf(stderr, "L%d: can't sub, stack too short", line_number);
+		exit(EXIT_FAILURE);
+	}
+
+	result = (*stack)->next->n - (*stack)->n;
+	temp = *stack;
+	*stack = (*stack)->next;
+	(*stack)->n = result;
+	free(temp);
 }
