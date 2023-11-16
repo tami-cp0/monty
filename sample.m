@@ -1,6 +1,4 @@
-push 1
+push 4
 push 2
-push 10
-push 3
-sub
+div
 pall
