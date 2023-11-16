@@ -27,11 +27,13 @@ void execute(char *line, stack_t **stack, unsigned int linecount)
 	instruction_t instructions[] = {
 		{"pall", pall}, {"push", push}, {"pint", pint}, {"pop", pop}, {"swap", swap},
 		{"add", add}, {"nop", nop}, {"sub", sub}, {"div", my_div}, {"mul", mul},
-		{"mod", mod}, {"#", comment},
+		{"mod", mod},
 	};
 	args = split_space(line);
 	for (j = 0; j < sizeof(instructions) / sizeof(instruction_t); j++)
 	{
+		if (strcmp(args[0], "#") == 0)
+			return;
 		if (strcmp(args[0], instructions[j].opcode) == 0)
 		{
 			if ((strcmp(args[0], "push") == 0) && args[1] == NULL)
