@@ -1,4 +1,5 @@
 #include "monty.h"
+void push(stack_t **stack, unsigned int line_number);
 
 /**
  * push - Pushes a new node with the given data onto the stack
@@ -12,13 +13,13 @@
  */
 void push(stack_t **stack, unsigned int line_number)
 {
-	int data;
+	int result;
 	char *endptr;
 	stack_t *new_node;
 
 
-	data = strtol(global_value, &endptr, 10);
-	if (*endptr != '\0' && strcmp(global_value, "0") != 0)
+	result = strtol(data.value, &endptr, 10);
+	if (*endptr != '\0' && strcmp(data.value, "0") != 0)
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		if (*stack != NULL)
@@ -34,16 +35,39 @@ void push(stack_t **stack, unsigned int line_number)
 			free_stack(stack);
 		exit(EXIT_FAILURE);
 	}
-	new_node->n = data;
-	new_node->next = *stack;
+	new_node->n = result;
+	new_node->next = NULL;
 	new_node->prev = NULL;
 
-	if (*stack != NULL)
+	if (data.choice == 0)
 	{
-		(*stack)->prev = new_node;
-	}
+		if (*stack != NULL)
+		{
+			(*stack)->prev = new_node;
+		}
 
-	*stack = new_node;
+		new_node->next = *stack;
+		*stack = new_node;
+	}
+	else if (data.choice == 1)
+	{
+		if (*stack == NULL)
+		{
+			*stack = new_node;
+		}
+		else
+		{
+			stack_t *temp = *stack;
+
+			while (temp->next != NULL)
+			{
+				temp = temp->next;
+			}
+
+			temp->next = new_node;
+			new_node->prev = temp;
+		}
+	}
 }
 
 /**

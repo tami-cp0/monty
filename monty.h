@@ -10,7 +10,6 @@
 #include <ctype.h>
 
 #define MAX_LINE_SIZE 10240
-extern char *global_value;
 /**
 * struct stack_s - doubly linked list representation of a stack (or queue)
 * @n: integer
@@ -42,6 +41,19 @@ typedef struct instruction_s
 
 } instruction_t;
 
+/**
+ * struct global - Structure to hold global data for the Mini Monty interpreter
+ * @value: A string representing the numeric value extracted from user input
+ * @choice: An integer indicating the current mode (0 for stack, 1 for queue)
+ */
+typedef struct global
+{
+	char *value;
+	int choice;
+} global;
+
+extern global data;
+
 /* Define the function prototypes for each operation */
 void push(stack_t **stack, unsigned int line_number);
 void pop(stack_t **stack, unsigned int line_number);
@@ -68,6 +80,9 @@ char *_strdup(char *str);
 void free_mem(char **args);
 void free_stack(stack_t **stack);
 
+/* helper functions */
 int empty_or_space(char *string);
+void queue(stack_t **stack, unsigned int line_number);
+void stack_(stack_t **stack, unsigned int line_number);
 
 #endif /* MONTY_H */
