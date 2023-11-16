@@ -119,7 +119,7 @@ void mul(stack_t **stack, unsigned int line_number)
 
 	result = ((*stack)->n * (*stack)->next->n);
 	temp = *stack;
-	*stack = *stack->next;
-	*stack->n = result;
+	*stack = (*stack)->next;
+	(*stack)->n = result;
 	free(temp);
 }
