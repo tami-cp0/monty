@@ -22,6 +22,8 @@ void push(stack_t **stack, unsigned int line_number)
 	if (*endptr != '\0' && strcmp(global_value, "0") != 0)
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
+		if (*stack != NULL)
+			free_stack(stack);
 		exit(EXIT_FAILURE);
 	}
 
@@ -29,6 +31,8 @@ void push(stack_t **stack, unsigned int line_number)
 	if (new_node == NULL)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
+		if (*stack != NULL)
+			free_stack(stack);
 		exit(EXIT_FAILURE);
 	}
 	new_node->n = data;
@@ -95,15 +99,15 @@ void pop(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * pint - Prints the value at the top of the stack.
- * @stack: A pointer to the top of the stack.
- * @line_number: The line number in the Monty bytecodes file.
- *
- * This function prints the value at the top of the stack.
- * If the stack is empty, it prints an error message and exits.
- *
- * Return: None.
- */
+* pint - Prints the value at the top of the stack.
+* @stack: A pointer to the top of the stack.
+* @line_number: The line number in the Monty bytecodes file.
+*
+* This function prints the value at the top of the stack.
+* If the stack is empty, it prints an error message and exits.
+*
+* Return: None.
+*/
 void pint(stack_t **stack, unsigned int line_number)
 {
 	stack_t *temp = *stack;
@@ -114,4 +118,38 @@ void pint(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	printf("%d\n", temp->n);
+}
+
+/**
+ * swap - Swaps the top two elements of the stack.
+ * @stack: A pointer to the top of the stack.
+ * @line_number: The line number in the Monty bytecodes file.
+ *
+ * This function swaps the top two elements of the stack.
+ * If the stack contains fewer than two elements, it prints
+ * an error message to stderr and exits with failure status.
+ *
+ * Return: None.
+ */
+void swap(stack_t **stack, unsigned int line_number)
+{
+	stack_t *temp;
+	stack_t *current;
+
+	if ((*stack == NULL || (*stack)->next == NULL))
+	{
+		fprintf(stderr, "L%d: can't swap, stack too short", line_number);
+		exit(EXIT_FAILURE);
+	}
+
+	temp = *stack;
+	current = (*stack)->next;
+
+	temp->prev = current;
+	temp->next = current->next;
+
+	current->next = temp;
+	current->prev = NULL;
+
+	*stack = current;
 }
