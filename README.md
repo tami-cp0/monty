@@ -45,5 +45,8 @@ Replace <file> with the path to the Monty byte code <file>.
 17. `queue` - Sets the format of the data to a queue (FIFO).
 
 ##
-This README should give potential contributors or users a better understanding of the knowledge required to work with my ***monty*** project. Feel free to modify or expand this section to fit your project's specific requirements.
+This README should give potential contributors or users a better understanding of the knowledge required to work with my ***monty*** project.
+
+contanct: @findtamilore@gmail.com
+
 > Feel free to use, modify, and distribute it without any restriction. I appreciate, but don't require, acknowledgement in derivative works.
