@@ -47,6 +47,6 @@ Replace <file> with the path to the Monty byte code <file>.
 ##
 This README should give potential contributors or users a better understanding of the knowledge required to work with my ***monty*** project.
 
-contanct: @findtamilore@gmail.com
+e-mail: findtamilore@gmail.com
 
 > Feel free to use, modify, and distribute it without any restriction. I appreciate, but don't require, acknowledgement in derivative works.
