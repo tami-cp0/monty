@@ -21,7 +21,7 @@ Run:
 ```
 Replace <file> with the path to the Monty byte code <file>.
 ***Ensure `<file>` contains valid monty opcodes in the bytecode file.***
-***NOTE:*** The program accepts only a file as an argument and does not run in an interactive mode.
+> **NOTE:** The program accepts only a file as an argument and does not run in an interactive mode.
 
 ## Operations
 > These are the current implemented functionalities:
@@ -44,4 +44,6 @@ Replace <file> with the path to the Monty byte code <file>.
 16. `stack` - Sets the format of the data to a stack (LIFO).
 17. `queue` - Sets the format of the data to a queue (FIFO).
 
-### 
+###
+This README should give potential contributors or users a better understanding of the knowledge required to work with my ***monty*** project. Feel free to modify or expand this section to fit your project's specific requirements.
+> Feel free to use, modify, and distribute it without any restriction. I appreciate, but don't require, acknowledgement in derivative works.
