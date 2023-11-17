@@ -19,9 +19,29 @@ Run:
 ```
 ./monty <file>
 ```
-Replace <file> with the path to the Monty byte code file.
+Replace <file> with the path to the Monty byte code <file>.
 ***Ensure `<file>` contains valid monty opcodes in the bytecode file.***
 ***NOTE:*** The program accepts only a file as an argument and does not run in an interactive mode.
 
-### Contribution
-This project is part of the Software Engineering program at [ALX Africa](https://www.alxafrica.com/), Contributions will be well appreciated.
+## Operations
+> These are the current implemented functionalities:
+
+1. `push` - Pushes an integer onto the stack.
+2. `pint` - Prints the value at the top of the stack followed by a new line.
+3. `pall` - Prints all the values on the stack, starting from the top.
+4. `pop` - Removes the top element of the stack.
+5. `swap` - Swaps the top two elements of the stack.
+6. `nop` - Does nothing.
+7. `add` - Adds the top two elements of the stack.
+8. `div` - Divides the second element by the top element of the stack.
+9. `mul` - Multiplies the top two elements of the stack.
+10. `sub` - Subtracts the top element from the second element on the stack.
+11. `mod` - Computes the remainder of the division of the second element by the top element.
+12. `pstr` - Prints the string starting from the top of the stack, terminated by a 0 (NULL) byte.
+13. `pchar` - Prints the ASCII character of the top element of the stack.
+14. `rotl` - Rotates the stack to the top (moves the top element to the bottom).
+15. `rotr` - Rotates the stack to the bottom (moves the bottom element to the top).
+16. `stack` - Sets the format of the data to a stack (LIFO).
+17. `queue` - Sets the format of the data to a queue (FIFO).
+
+### 
