@@ -4,7 +4,7 @@
 This project revolves around the development of a **C-based** Monty interpreter, focusing on implementing fundamental opcodes for both `Stacks` (Last In, First Out - LIFO) and `Queues` (First In, First Out - FIFO).
 
 The interpreter processes Monty byte code instructions to perform basic stack and queue operations.
-> [bf](./bf) is a sub-directory used for learning basic operations in [***brainfuck***](https://en.wikipedia.org/wiki/Brainfuck) programming language.
+> [bf](./bf) is a sub-directory used for learning basic operations in [`brainfuck`](https://en.wikipedia.org/wiki/Brainfuck) programming language.
 
 ## Installation and Usage
 To install, compile and run the project, clone the repository using the following command:
